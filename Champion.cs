@@ -19,5 +19,16 @@ namespace Projeto_Combate {
             Armor = armor;
         }
 
+        public void takeDamage(Champion other) {
+            Life -= other.Attack;
+        }
+
+        public string status() {
+            if (Life == 0) {
+                return Name + ": " + Life + " de vida (morreu)";
+            }
+            return Name + ": " + Life + " de vida";
+
+        }
     }
 }

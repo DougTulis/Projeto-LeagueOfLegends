@@ -28,8 +28,10 @@
             for (int i = 0; i < turno; i++) {
                 Console.WriteLine();
                 Console.WriteLine("Resultado do turno " + (i+1));
-                Console.WriteLine(champ1.Name + ":");
-                Console.WriteLine(champ2.Name + ":");
+                champ1.takeDamage(champ2);
+                champ2.takeDamage(champ1);
+                Console.WriteLine(champ1.Name + ":" + champ1.status());
+                Console.WriteLine(champ2.Name + ":" + champ2.status());
                 Console.WriteLine();
 
             }
