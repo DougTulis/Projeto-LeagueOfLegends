@@ -8,7 +8,7 @@ namespace Projeto_Combate {
     internal class Champion {
 
         public string Name { get; private set; }
-        public int Life { get;  set; }
+        public int Life { get; set; }
         public int Attack { get; private set; }
         public int Armor { get; private set; }
 
@@ -19,8 +19,5 @@ namespace Projeto_Combate {
             Armor = armor;
         }
 
-        public override string? ToString() {
-            return base.ToString();
-        }
     }
 }
