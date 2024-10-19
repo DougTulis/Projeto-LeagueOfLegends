@@ -20,14 +20,20 @@ namespace Projeto_Combate {
         }
 
         public void takeDamage(Champion other) {
-            Life -= other.Attack;
-        }
+            int dano = other.Attack - Armor;
+            if (dano <=0) {
+                Life -= 1;
+            } else {
+                Life -= dano;
+            }
+            
+        } 
 
         public string status() {
-            if (Life == 0) {
-                return Name + ": " + Life + " de vida (morreu)";
+            if (Life <= 0) {
+                return Name + ": " + 0 + " de vida (morreu)";
             }
-            return Name + ": " + Life + " de vida";
+                return Name + ": " + Life + " de vida";
 
         }
     }

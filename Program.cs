@@ -13,7 +13,7 @@
             Champion champ1 = new Champion(nome1, vidaInicial1, ataque1, armadura1);
             Console.WriteLine();
             Console.WriteLine("Digite os dados do segundo campeão: ");
-            Console.WriteLine();
+            Console.Write("Nome: ");
             string nome2 = Console.ReadLine();
             Console.Write("Vida inicial: ");
             int vidaInicial2 = int.Parse(Console.ReadLine());
@@ -23,18 +23,25 @@
             int armadura2 = int.Parse(Console.ReadLine());
             Champion champ2 = new Champion(nome2, vidaInicial2, ataque2, armadura2);
             Console.WriteLine();
-            Console.WriteLine("Quantos turnos você deseja executar? ");
+            Console.Write("Quantos turnos você deseja executar? ");
             int turno = int.Parse(Console.ReadLine());
+            bool champMorto = false;
             for (int i = 0; i < turno; i++) {
                 Console.WriteLine();
-                Console.WriteLine("Resultado do turno " + (i+1));
-                champ1.takeDamage(champ2);
+                Console.WriteLine("Resultado do turno " + (i + 1) + ":");
+               
                 champ2.takeDamage(champ1);
-                Console.WriteLine(champ1.Name + ":" + champ1.status());
-                Console.WriteLine(champ2.Name + ":" + champ2.status());
-                Console.WriteLine();
-
+                champ1.takeDamage(champ2);
+                 if (champ2.Life <= 0 || champ1.Life <= 0) {
+                    champMorto = true;
+                }
+                Console.WriteLine(champ1.status());
+                Console.WriteLine(champ2.status());
+                if (champMorto) {
+                    break;
+                }
             }
+            Console.WriteLine("Fim do combate");
         }
     }
 }
